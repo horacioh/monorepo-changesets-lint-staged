@@ -1,0 +1,34 @@
+{
+  "name": "monorepo-example-with-changesets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Horacio Herrera",
+  "private": true,
+  "scripts": {
+    "changeset": "changeset",
+    "dev": "yarn workspace www dev",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json|css)\"",
+    "format": "yarn prettier --write",
+    "lint": "yarn workspaces run lint",
+    "build": "yarn workspaces run build",
+    "check-format": "yarn prettier --list-different",
+    "validate": "npm-run-all --parallel check-format lint build"
+  },
+  "workspaces": [
+    "www",
+    "packages/*"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.5.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1"
+  },
+  "lint-staged": {
+    "**/*.+(js|jsx|ts|tsx|json|css)": [
+      "yarn format"
+    ]
+  }
+}
