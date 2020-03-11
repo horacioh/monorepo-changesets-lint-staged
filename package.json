@@ -30,5 +30,9 @@
     "**/*.+(js|jsx|ts|tsx|json|css)": [
       "yarn format"
     ]
+  },
+  "engines": {
+    "npm": "only-use-yarn",
+    "yarn": ">= 1.17.3"
   }
 }
